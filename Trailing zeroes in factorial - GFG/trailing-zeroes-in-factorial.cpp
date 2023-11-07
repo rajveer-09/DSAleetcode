@@ -10,13 +10,20 @@ public:
     int trailingZeroes(int N)
     {
         // Write Your Code here
-        int sum = 0;
-    
-    for (int i = 5; N / i > 0; i *= 5) {
-        sum += N / i;
-    }
-    
-    return sum;
+       int sum=0;
+for(int i=1;0<N;i++)
+{
+if(N<5)
+{
+break;
+}
+else
+{
+N=N/5;
+sum+=N;
+}
+}
+return sum;
     }
 };
 
