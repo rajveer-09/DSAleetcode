@@ -1,35 +1,26 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int start = -1, end = -1;
+        vector<int> ans(2, -1);
+        int start = 0, end = (int)nums.size() - 1;
+        while(start <= end) {
+            int mid = start + (end-start)/2;
+            if(nums[mid] < target) start = mid+1;
+            else {
+                if(nums[mid] == target) ans[0] = mid;
+                end = mid-1;
+            }
+        }
+        start = 0, end = (int)nums.size() - 1;
+        while(start <= end) {
+            int mid = start + (end-start)/2;
+            if(nums[mid] > target) end = mid-1;
+            else {
+                if(nums[mid] == target) ans[1] = mid;
+                start = mid+1;
+            }
+        }
+        return ans;
         
-         int left = 0, right = nums.size() - 1;
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == target) {
-            start = mid;
-            right = mid - 1;  // Move left to find the starting position
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
-
-    // Binary search to find the ending position
-    left = 0, right = nums.size() - 1;
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == target) {
-            end = mid;
-            left = mid + 1;  // Move right to find the ending position
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
-
-    return {start, end};
     }
 };
