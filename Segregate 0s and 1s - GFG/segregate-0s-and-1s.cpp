@@ -11,19 +11,28 @@ class Solution{
 public:
     void segregate0and1(int arr[], int n) {
         // code here
-        int c1=0,c2=0;
-        for (int i=0;i<n;i++){
-        if(arr[i]==0)
-        c1++;
+        int s=0,e=n-1;
         
-        else
-        c2++;
+        while(s<e){
+            
+            if(arr[s]==0)
+            s++;
+            else
+            {
+                if(arr[e]==0)
+                {
+                    swap(arr[s],arr[e]);
+                s++,e--;
+                    
+                }
+                
+                else
+                e--;
+                
+                
+            }
         }
-        for(int i=0;i<c1;i++)
-            arr[i]=0;
         
-        for(int i=c1;i<c1+c2;i++)
-             arr[i]=1;
     }
 };
 
