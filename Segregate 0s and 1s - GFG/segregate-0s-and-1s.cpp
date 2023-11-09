@@ -19,15 +19,15 @@ public:
             s++;
             else
             {
-                if(arr[e]==0)
-                {
+                if(arr[e]==1)
+                 e--;
+                
+                else
+               {
                     swap(arr[s],arr[e]);
                 s++,e--;
                     
                 }
-                
-                else
-                e--;
                 
                 
             }
