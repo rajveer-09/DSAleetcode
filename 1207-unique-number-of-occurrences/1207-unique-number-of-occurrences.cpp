@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        
         int cnt = 1;
         vector<int> ans;
         int j = 1;
