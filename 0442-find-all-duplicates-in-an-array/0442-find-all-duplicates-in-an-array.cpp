@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         
-        vector<int> result;
+         vector<int> result;
 
         for (int num : nums) {
             int index = abs(num) - 1;
