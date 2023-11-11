@@ -7,7 +7,7 @@ public:
         
         while(s<=e){
             int m=s+(e-s)/2;
-            if(m==0)
+            if(m==0)  //as m=0 cannot be handled
                 return x;
             
             if(m==x/m)//but here m=0 cannot be handled
