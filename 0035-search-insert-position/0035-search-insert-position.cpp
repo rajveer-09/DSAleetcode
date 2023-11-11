@@ -7,15 +7,20 @@ public:
         while(s<=e){
             int m=s+(e-s)/2;
             
-            if(nums[m]==t)
-                return m;
-            else if(nums[m]<t)
-                s=m+1;
+            if(nums[m]==t){
+                ans=m;
+                break;
+            }
+            
+            else if(nums[m]<t){
+                s=m+1;ans=s;
+            }
+            
             else{
                 ans=m;
                 e=m-1;
             }
         }
-            return s;
+            return ans;
         }
 };
