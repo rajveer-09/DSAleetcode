@@ -2,7 +2,7 @@ class Solution {
 public:
     int searchInsert(vector<int>& nums, int t) {
          
-        int s=0,e=nums.size()-1,ans=0;
+        int s=0,e=nums.size()-1,ans=nums.size();
         
         while(s<=e){
             int m=s+(e-s)/2;
@@ -12,9 +12,9 @@ public:
                 break;
             }
             
-            else if(nums[m]<t){
-                s=m+1;ans=s;
-            }
+            else if(nums[m]<t)
+                s=m+1;
+            //if the value is smaller then we cant put our number there only possibility is remaining array after that as we have replace the fist greater or same value
             
             else{
                 ans=m;
