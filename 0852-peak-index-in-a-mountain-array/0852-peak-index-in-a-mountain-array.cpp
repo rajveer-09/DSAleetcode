@@ -1,23 +1,19 @@
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        int left = 0;
-        int right = arr.size() - 1;
-
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-
-            if (arr[mid] < arr[mid + 1]) {
-                // We are in the ascending part of the mountain
-                left = mid + 1;
-            } else {
-                // We are in the descending part of the mountain or at the peak
-                right = mid;
-            }
-        }
-
-        // The loop breaks when left == right, which is the peak
-        return left;
         
+        int s=0,e=arr.size()-1,m;
+        while(s<=e){
+            m=e+(s-e)/2; //onlt this will work here with this algo
+            
+            if(arr[m]>arr[m-1]&&arr[m]>arr[m+1])
+                return m;
+            
+            if(arr[m]>arr[m-1])
+                s=m+1;
+            else
+                e=m-1;
+        }
+        return -1;
     }
 };
