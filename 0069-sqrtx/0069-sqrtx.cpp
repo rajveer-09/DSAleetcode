@@ -1,9 +1,11 @@
 class Solution {
 public:
     int mySqrt(int x) {
+      //int s=0,e=x,ans=0;
+        
         
         int n=x;
-       long long int i=0;
+       long int i=0;
         
         for(;i*i<n;i++){
            
@@ -13,4 +15,5 @@ public:
                 return i-1;
        return i;
     }
+        
 };
