@@ -2,10 +2,10 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         
-         vector<int> result;
+        vector<int> result;
 
         for (int num : nums) {
-            int index = abs(num) - 1;
+            int index = (num > 0) ? num - 1 : -num - 1;
 
             if (nums[index] < 0) {
                 // If the number at index is negative, it means we have seen it before
