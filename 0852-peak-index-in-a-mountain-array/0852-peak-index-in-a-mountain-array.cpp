@@ -4,7 +4,7 @@ public:
         
         int s=0,e=arr.size()-1,m;
         while(s<=e){
-            m=e+(s-e)/2; //onlt this will work here with this algo
+            m=e+(s-e)/2; //only this will work here with this algo
             
             if(arr[m]>arr[m-1]&&arr[m]>arr[m+1])
                 return m;
