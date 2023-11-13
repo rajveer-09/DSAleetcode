@@ -26,7 +26,7 @@ int main()
 int missingNumber(int A[], int N)
 {
     // Your code goes here
-      int sum=0,add=0;
+     int sum=0,add=0;
  
     for(int i=1;i<=N;i++)
     {
