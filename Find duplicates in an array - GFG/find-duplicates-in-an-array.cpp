@@ -7,26 +7,24 @@ class Solution{
   public:
     vector<int> duplicates(long long arr[], int n) {
         // code here
-     unordered_map<int,int> freq;
-        vector<int>duplicate;
-        
-        for(int i = 0; i<n; i++)
-        {
-            freq[arr[i]]++;
+        for (int i = 0; i < n; i++) {
+            int index = arr[i] % n;
+            arr[index] += n;
         }
-        for(auto x : freq)
-        {
-            if(x.second > 1)
-            {
-                duplicate.push_back(x.first);
+    
+        // Now check which value exists more
+        // than once by dividing with the size
+        // of array
+        bool flag = false;
+        vector<int> ans;
+        for (int i = 0; i < n; i++) {
+            if ((arr[i] / n) > 1) {
+                ans.push_back(i);
+                flag = true;
             }
-        }
-        if(duplicate.empty() == true)
-        {
-            duplicate.push_back(-1);
-        }
-        sort(duplicate.begin(), duplicate.end());
-        return duplicate;
+        }   
+        if (!flag) ans.push_back(-1);
+        return ans;
         
     }
 };
