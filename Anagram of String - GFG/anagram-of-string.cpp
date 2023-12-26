@@ -30,24 +30,22 @@ int main()
 int remAnagram(string str1, string str2)
 {
 // Your code goes 
- vector<int> freq1(26, 0);
-    vector<int> freq2(26,0);
-    
-    // Count frequency of each character in str1
-    for(int c : str1){
-        freq1[c - 'a']++;
-    }
-    // count frequency of each character in str2
-    for(int c : str2){
-        freq2[c - 'a']++;
-    }
-    
-    // find absolute difference in frequency of each character
-    int deletion = 0;
-    for(int i=0; i<26; i++){
-        deletion += abs(freq1[i] - freq2[i]);
-    }
-    
-    // return the answer
-    return deletion;
+ // make hash array for both string and calculate
+    // frequency of each character
+    int count1[CHARS] = {0}, count2[CHARS] = {0};
+
+    // count frequency of each charcter in first string
+    for (int i=0; str1[i]!='\0'; i++)
+        count1[str1[i]-'a']++;
+
+    // count frequency of each charcter in second string
+    for (int i=0; str2[i]!='\0'; i++)
+        count2[str2[i]-'a']++;
+
+    // traverse count arrays to find number of charcters
+    // to be removed
+    int result = 0;
+    for (int i=0; i<26; i++)
+        result += abs(count1[i] - count2[i]);
+        return result;
 }
