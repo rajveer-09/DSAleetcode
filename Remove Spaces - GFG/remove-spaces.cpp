@@ -15,9 +15,7 @@ class Solution
             if(s[i]!=' '){
                 k.push_back(s[i]);
             }
-            else{
-                continue;
-            }
+            
         }
         return k;
     }
