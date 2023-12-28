@@ -13,8 +13,15 @@ class Solution
     bool isIsogram(string s)
     {
         //Your code here
-         unordered_set<char> us(s.begin(),s.end());
-        return(us.size()==s.size());
+        sort(s.begin(),s.end());
+        
+        for(int i=0;i<s.length()-1;i++){
+            
+            if(s[i]==s[i+1])
+            return false;
+        }
+        
+        return true;
     }
 };
 
