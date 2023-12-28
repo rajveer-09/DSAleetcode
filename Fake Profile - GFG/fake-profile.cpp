@@ -21,7 +21,7 @@ string solve(string a) {
     // code here
      int count = 0, alphabets[26] {0};
     for(char c: a)
-        if(c != 'a' & c != 'e' and c != 'i' and c != 'o' and c != 'u' and alphabets[c-97] == 0) {
+        if(c != 'a' && c != 'e' and c != 'i' and c != 'o' and c != 'u' and alphabets[c-97] == 0) {
             count++;
             alphabets[c-97]++;
         }
