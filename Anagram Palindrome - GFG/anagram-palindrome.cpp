@@ -26,10 +26,19 @@ int isPossible (string S)
 {
     // your code here
     
-    int count = 0;
-    unordered_map<char, int> ump;
-    for(auto i: S) ump[i]++;
-    for(auto i: ump)
-        if(i.second % 2 == 1) count++;
-    return (count>1?0:1);
+    int frequency[26] = {0}; 
+    for (int i = 0; i < S.length(); i++) {
+        frequency[S[i] - 'a']++; 
+    }
+
+    int oddcount = 0;
+    for (int i = 0; i < 26; i++) {
+        if (frequency[i] % 2 != 0) {
+            oddcount++;
+            if (oddcount > 1)
+                return 0;
+        }
+    }
+    return 1;
+    
 }
