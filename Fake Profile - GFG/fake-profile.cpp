@@ -19,14 +19,11 @@ int main() {
 
 string solve(string a) {
     // code here
-     string vowel="aeiou";
-    string ans="";
-    int count=0;
-    for(int i=0;i<a.length();i++){
-        if((vowel.find(a[i])==string::npos)&&(ans.find(a[i])==string::npos)){
-               ans+=a[i];
-               count++;
+     int count = 0, alphabets[26] {0};
+    for(char c: a)
+        if(c != 'a' and c != 'e' and c != 'i' and c != 'o' and c != 'u' and alphabets[c-97] == 0) {
+            count++;
+            alphabets[c-97]++;
         }
-    }
- return count%2==0?"SHE!":"HE!";
+    return count%2 == 0 ? "SHE!" : "HE!";
 }
