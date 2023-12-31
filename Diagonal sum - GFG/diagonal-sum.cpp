@@ -11,7 +11,7 @@ class Solution {
 public:
     int DiagonalSum(vector<vector<int> >& matrix) {
         // Code here
-        int r = matrix.size();
+        int r = matrix.size();//initializes the variable r with the number of rows in the matrix
         int ans = 0;
         
         for(int i=0;i<r;i++)
