@@ -9,46 +9,42 @@ class Solution {
 public:
     int Count(vector<vector<int> >& matrix) {
         // Code here
-        int n=matrix.size();
-        int m=matrix[0].size();
-        int ans=0;
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                
-                if(matrix[i][j]==1){
-                     int c0=0;
-                
-                if(i+1<n&&matrix[i+1][j]==0){
-                    c0++;
-                }
-                if(j+1<m&&matrix[i][j+1]==0){
-                    c0++;
-                }
-                if(i-1>=0 && matrix[i-1][j]==0 ){
-                    c0++;
-                }
-                if(j-1>=0&&matrix[i][j-1]==0){
-                    c0++;
-                }
-                if(i-1>=0&&j-1>=0&&matrix[i-1][j-1]==0){
-                    c0++;
-                }
-                if(i-1>=0&&j+1<m&&matrix[i-1][j+1]==0){
-                    c0++;
-                }
-                if(i+1<n&&j-1>=0&&matrix[i+1][j-1]==0){
-                    c0++;
-                }
-                if(i+1<n&&j+1<m&&matrix[i+1][j+1]==0){
-                    c0++;
-                }
-                  if(c0!=0&&c0%2==0){
-                ans++;
-            }
-            }
-            }
-          
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int ans = 0;
+        
+        //iterating over all the cells in the matrix.
+        for(int i = 0; i < n; i++){
+        	for(int j = 0; j < m; j++){
+        		//checking if the cell is not empty.
+        		if(matrix[i][j]){
+        			int cnt = 0;
+        			
+        			//checking the neighboring cells and counting the number of empty cells.
+        			if(i - 1 >= 0)
+        				cnt += matrix[i-1][j] == 0;
+        			if(i + 1 < n)
+        				cnt += matrix[i+1][j] == 0;
+        			if(j - 1 >= 0)
+        				cnt += matrix[i][j-1] == 0;
+        			if(j + 1 < m)
+        				cnt += matrix[i][j+1] == 0;
+        			if(i - 1 >= 0 and j - 1 >= 0)
+        				cnt += matrix[i-1][j-1] == 0;
+        			if(i - 1 >= 0 and j + 1 < m)
+        				cnt += matrix[i-1][j+1] == 0;
+        			if(i + 1 < n and j - 1 >= 0)
+        				cnt += matrix[i+1][j-1] == 0;
+        			if(i + 1 < n and j + 1 < m)
+        				cnt += matrix[i+1][j+1] == 0;
+        			
+        			//checking if the number of empty cells is even and non-zero.
+        			if(!(cnt & 1) and cnt)
+        				ans++;
+        		}
+        	}
         }
+        //returning the final count of qualifying cells.
         return ans;
     }
 };
