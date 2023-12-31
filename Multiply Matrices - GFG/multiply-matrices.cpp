@@ -33,11 +33,21 @@ int main()
 
 
 /*Complete the function below*/
-const int S{ 100 };
-void multiply( int a[][ S ], int b[][ S ], int c[][ S ], int n ) {
-    fill( **&c, *&c[ n ], 0 );
-    for ( int i{}; i < n; ++i )
-        for ( int j{}; j < n; ++j )
-            for ( int k{}; k < n; ++k )
-                c[ i ][ j ] += a[ i ][ k ] * b[ k ][ j ];
-} // T: 0.01
+void multiply(int A[][100], int B[][100], int C[][100], int N)
+{
+      //add code here.
+      int i, j, k;
+    
+    // nested loops to iterate over the matrices
+    for (i = 0; i < N; i++)
+    {
+        for (j = 0; j < N; j++)
+        {
+            C[i][j] = 0;
+            
+            // inner loop to perform matrix multiplication
+            for (k = 0; k < N; k++)
+                C[i][j] += A[i][k]*B[k][j];
+        }
+    }
+}
