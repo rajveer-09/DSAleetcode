@@ -13,7 +13,7 @@ class Solution
             
             while(n>0){
                 if(n&1){
-                    ans=((ans)%M *(x)%M) %M;
+                    ans=((ans) *(x)%M) %M;
                 }
                 x=((x)%M * (x)%M) %M;
                 n=n>>1;
